@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/favicon.png">
+    <title>My Professional Portfolio | Janefrances Nwachukwu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #05426a;
+            background-image: url('./images/nasa.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #e0e0e0; /* Light text color for dark background */
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: transform 0.28s ease-in-out;
+            will-change: transform;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #00CCFF; /* Bright blue/cyan accent color */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #FFD700; /* Gold secondary accent color on hover */
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        section {
+            background-color: rgba(19, 47, 76, 0.9); /* Opaque background for sections */
+            margin-bottom: 20px;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2, h3 {
+            color: #00CCFF; /* Bright blue/cyan accent color */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        p {
+            line-height: 1.6;
+            text-align: justify;
+            padding: 2.6px;
+        }
+        .profile-picture {
+            display: block;
+            margin: 30px auto;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 4px solid #00CCFF; /* Bright blue/cyan accent color */
+        }
+        .projects {
+            padding-bottom: 10px;
+        }
+        .project-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .project-item:last-child {
+            border-bottom: none;
+        }
+        .project-item h3 {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+        .project-item strong {
+            color: #FFD700; /* Gold secondary accent color */
+        }
+        .contact-info p {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .contact-info p a{
+            color: white;
+            text-decoration: none;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #e0e0e0;
+            padding: 30px 0;
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        footer p {
+            margin: 0px;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Header slide behavior */
+        header.header--hidden {
+            transform: translateY(-100%);
+        }
+
+        /* New styles for Persona, Goals, Values, and Quote sections */
+        .persona-section,
+        .goals-values-section,
+        .quote-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .persona-section h4,
+        .goals-values-section h4,
+        .quote-section h4 {
+            color: #4CAF50;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .quote-section blockquote {
+            margin: 0;
+            padding: 0 20px;
+            border-left: 5px solid #4CAF50;
+        }
+
+        .quote-section cite {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            color: #bbb;
+        }
+
+        /* New styles for Job Experience section */
+        .job-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+        }
+
+        .job-item h3 {
+            color: #4CAF50;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .job-item p {
+            margin: 0;
+            color: #e0e0e0;
+        }
+
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 0;
+                /* Ensure enough vertical space for stacked items */
+                height: auto; 
+                min-height: unset; 
+            }
+            nav ul li {
+                margin: 5px 0;
+            }
+            .container {
+                padding: 10px;
+            }
+            section {
+                padding: 20px;
+            }
+            h2, h3,
+            .persona-section h4,
+            .goals-values-section h4,
+            .quote-section h4,
+            .job-item h3,
+            .project-item h3,
+            .contact-info p {
+                text-align: center;
+            }
+            p {
+                text-align: left; /* Keep paragraphs readable */
+            }
+            .profile-picture {
+                width: 150px;
+                height: 150px;
+            }
+            footer {
+                padding: 20px 0;
+                gap: 10px;
+            }
+            .persona-section,
+            .goals-values-section,
+            .quote-section,
+            .job-item,
+            .project-item {
+                max-width: 95%; /* Ensures inner divs don't stretch too wide */
+                margin: 0 auto; /* Centers these block elements */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#certifications">Awards / Certifications</a></li>
+                <li><a href="#job-experience">Job Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="home">
+            <a href="https://www.linkedin.com/in/janefrances-nwachukwu" target="_blank">
+                <img src="./images/mom.jpg" alt="Profile Picture / LinkedIn Page" class="profile-picture">
+            </a>
+            <h2>Janefrances Nwachukwu</h2>
+            <h3 style="color:#FFD700;">Cybersecurity Analyst</h3>
+                <p>
+                    I am Janefrances Nwachukwu, a cybersecurity professional with a strong foundation in operations, compliance, risk management, and data privacy, built over several years in the financial sector. Currently completing a cybersecurity internship whilst advancing my portfolio through hands-on projects, certifications, and academic programs, I have developed strong skills in security analysis, ethical hacking, vulnerability detection and mitigation, and access control. My experience includes participating in CTF competitions, developing innovative solutions in virtual labs, and mentoring peers in cybersecurity fundamentals. Passionate about safeguarding digital environments, I am ever eager to contribute my clear technical expertise and business insight to help organizations strengthen their security posture, protect sensitive information, and effectively defend against cyber threats while still growing professionally.                
+                </p>
+            <div class="persona-section">
+                <h4>Persona</h4>
+                <p>Joy of unraveling cybersecurity puzzles, safeguarding digital spaces from evolving threats. Outside work, I like exploring emerging cyber threats, networking and engaging in CTF challenge.</p>
+            </div>
+
+            <div class="goals-values-section">
+                <h4>GOALS</h4>
+                <p>Enhance digital security by staying ahead of cyber threats, safeguarding sensitive information, and fortifying organizational assets.</p>
+
+                <h4>VALUES</h4>
+                <p>Commitment to proactive cybersecurity measures, aligning seamlessly with organizations that prioritize a resilient and sustainable secure digital environment.</p>
+            </div>
+
+            <div class="quote-section">
+                <h4>Favorite Quote</h4>
+                <blockquote>
+                    <p>"If you think you know-it-all about cybersecurity, this discipline was probably ill-explained to you."</p>
+                    <cite>STEPHANE NAPPO</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2>EDUCATION & CERTIFICATIONS</h2>
+            <ul>
+                <li style="margin-bottom: 10px;">BSc. in Computer Science</li>
+                <li style="margin-bottom: 10px;">CompTIA Security+</li>
+                <li style="margin-bottom: 10px;">ISC2 Certified In Cybersecurity</li>
+                <li style="margin-bottom: 10px;">IBM Cybersecurity professional Certificate</li>
+                <li style="margin-bottom: 10px;">Simplilearn/Purdue University Professional Certificate Program In Cybersecurity</li>
+            </ul>
+        </section>
+
+        <section id="job-experience">
+            <h2>JOB HISTORY & EXPERIENCE</h2>
+            <div class="job-item">
+                <h3>IT Support Specialist (Volunteer)</h3>
+                <p>February 2025 – To date</p>
+            </div>
+            <div class="job-item">
+                <h3>IBM SkillsBuild IT & Cybersecurity Analyst Learner</h3>
+                <p>February 2023 – To date</p>
+            </div>
+            <div class="job-item">
+                <h3>Transaction Services Delivery Lead (Operations & Compliance)</h3>
+                <p>May 2015 – January 2020</p>
+            </div>
+            <div class="job-item">
+                <h3>Customer Service Representative Lead (Data Privacy and Security Compliance)</h3>
+                <p>June 2012 – April 2015</p>
+            </div>
+        </section>
+
+        <section class="projects">
+            <h2>WORKS & PROJECTS</h2>
+
+            <div class="project-item">
+                <h3>1. DDoS Attack Response And Mitigation</h3>
+                <strong>WORK DESCRIPTION:</strong> Simulated Cyber Investigator Interactive Experience
+                <p>
+                    Investigated a Distributed Denial of Service (DDoS) attack that disrupted internal communications across terminals, check-in counters, security checkpoints, and baggage claim systems at Azureways Airport by collaborating with security and IT teams to diagnose, mitigate, and secure affected network systems.
+                    <br>
+                    <br><b style="color: #4CAF50;">Tools:</b> WireShark, QRadar SIEM, Nmap, Zenmap, Netflow Analyzer, Juniper.</br>
+                    <br>
+                </p>
+                <strong>RESULT</strong>
+                <p>
+                    Diagnosed and mitigated DDoS attack within 8 hours, restoring 95% of internal communications across terminals, check-in counters, security checkpoints, and baggage claim areas minimizing downtime and operational disruption.
+                    Increased network resilience by 35% through firewall optimization and hardening, reducing the likelihood of future communication disruptions by an estimated 40%.
+                </p>
+            </div>
+
+            <div class="project-item">
+                <h3>2. Security Control Implementation</h3>
+                <strong>WORK DESCRIPTION</strong>
+                <p>
+                    Enhanced the security and compliance of Windows Server by configuring password policies in alignment with NIST and CIS guidelines. Implemented security controls in a group policy to mitigate threat.
+                    <br>
+                    <br><b style="color: #4CAF50;">Tools:</b> Windows Virtual Machine, NIST and CIS Frameworks.</br>
+                    <br>
+                </p>
+                <strong>RESULT</strong>
+                <p>
+                    Successfully configured password policies in a Windows environment aligned with NIST and CIS guidelines, increasing password complexity compliance by 40% and establishing essential documentation to support ongoing security governance.
+                </p>
+            </div>
+
+            <div class="project-item">
+                <h3>3. Splunk Enterprise Implementation and Log Monitoring Projects</h3>
+                <strong>WORK DESCRIPTION</strong>
+                <p>
+                    Successfully installed, configured, and managed Splunk Enterprise to support real-time monitoring, analysis, and visualization of machine-generated data.
+                    Integrated Universal Forwarder for centralized log collection across Linux and Windows systems, enabling effective system log analysis.
+                    Implemented role-based access control (RBAC) to ensure secure and structured access management.
+                    Developed custom SPL queries for auditing login activity, error detection, and unauthorized access, providing actionable cybersecurity insights.
+                    Designed interactive dashboards featuring charts, cluster maps, and advanced visualizations to interpret temperature patterns and access logs, enhancing threat detection and data comprehension.
+                    <br>
+                    <br><b style="color: #4CAF50;">Tools:</b> Splunk version 9.3.1, Windows Virtual Machine.</br>
+                </p>
+                    
+
+            </div>
+
+            <div class="project-item">
+                <h3>4. Online Privacy Enhancement And Protection</h3>
+                <strong>WORK DESCRIPTION:</strong> Configuring a secure connection using Proton VPN
+                <p>
+                    Configured and established a secure connection using Proton VPN on Windows, ensuring encrypted internet access, enhanced online privacy, and protection against tracking, surveillance, and unauthorized access
+                    <br>
+                    <br><b style="color: #4CAF50;">Tools:</b> Windows Virtual Machine, Proton VPN.</br>
+                    <br>
+                </p>
+                <strong>RESULT</strong>
+                <p>
+                    Deployed and configured Proton VPN on a secure host environment to establish encrypted tunnels for internet traffic, ensuring data confidentiality, anonymity, and protection against surveillance or man-in-the-middle attacks improving privacy compliance by 40%.
+                </p>
+            </div>
+
+            <div class="project-item">
+                <h3>5. Creating and Implementing a Cybersecurity Program</h3>
+                <strong>WORK DESCRIPTION:</strong> Team Sprint
+                <p>
+                    Led a cybersecurity initiative involving risk assessment through stakeholder interviews, identifying key vulnerabilities. Developed a NIST-based roadmap, implemented security controls, and drafted policies for incident response, data protection, and compliance.
+                    Emphasized proactive threat hunting and continuous monitoring, culminating in a comprehensive program plan presented to stakeholders.
+                    <br>
+                    <br><b style="color: #4CAF50;">Tools:</b> Windows Virtual Machine, Nessus, NIST Framework.</br>
+                    <br>
+                </p>
+                <strong>RESULT</strong>
+                <p>
+                    Strengthened the organization's security posture by addressing 90% of identified critical vulnerabilities, implementing NIST-aligned controls, and improving threat detection response time by 25%.
+                    Delivered a comprehensive cybersecurity program plan with 100% stakeholder approval, supported by 10+ newly developed policies and procedures aligned with business and compliance objectives.
+                </p>
+            </div>
+
+            <div class="project-item">
+                <h3>6. Network Security Enhancement</h3>
+                <strong>WORK DESCRIPTION:</strong> Configured Web Application Firewall on Windows
+                <p>
+                    Installed and configured Internet Information Services (IIS) on Windows Server, created a custom website on a specified port, configured and implemented Windows Firewall rules to control and secure network access.
+                    <br>
+                    <br><b style="color: #4CAF50;">Tools:</b> Windows Virtual Machine, Kali Linux, Nmap.</br>
+                    <br>
+                </p>
+                <strong>RESULT</strong>
+                <p>
+                    Successfully implemented enhanced firewall configurations, reducing potential attack vectors and strengthening the organization's defense against unauthorized access, Cross-Site scripting and SQL Injection attacks.
+                    The project resulted in a 20% improvement in network security effectiveness, contributing to a more robust and resilient cybersecurity infrastructure.
+                </p>
+            </div>
+
+            <div class="project-item">
+                <h3>7. Network Traffic Detection And Analysis</h3>
+                <strong>WORK DESCRIPTION:</strong> Snort IDS Implementation
+                <p>
+                    Configured and deployed Snort on Kali Linux, detected and analyzed network traffic for potential security threats in real time by configuring the NAT network on Windows Server and Kali Linux, installing and running Snort, and simulating a network scan using Angry IP Scanner.
+                    <br>
+                    <br><b style="color: #4CAF50;">Tools:</b> Windows Server 2022 VM, Kali Linux, Snort.</br>
+                    <br>
+                </p>
+                <strong>RESULT</strong>
+                <p>
+                    Successfully implemented and tested Snort on a Kali Linux virtual machine, analyzing over 1,000 network packets to detect and log potential threats. Validated Snort's effectiveness by simulating ICMP scans, port scans, and suspicious payloads, demonstrating strong proficiency in configuring IDS rules and monitoring real-time network traffic.
+                </p>
+            </div>
+
+            <div class="project-item">
+                <h3>8. Actionable Threat Intelligence</h3>
+                <strong>WORK DESCRIPTION:</strong> Investigated Deep and Dark Web Using Tor Browser
+                <p>
+                    Leveraged the Tor Browser for secure exploration of the deep and dark web, enabling the identification and collection of actionable cyber threat intelligence.
+                    <br>
+                    <br><b style="color: #4CAF50;">Tools:</b> Kali Linux, Tor Browser.</br>
+                    <br>
+                </p>
+                <strong>RESULT</strong>
+                <p>
+                    Successfully set up a proxy, installed the Tor browser, and explored the deep and dark web, demonstrating the use of anonymization tools to access non-indexed websites and understand alternative layers of the internet beyond conventional search engines.
+                </p>
+            </div>
+
+            <div class="project-item">
+                <h3>9. Phishing and Malware Attack Response & Recovery</h3>
+                <strong>WORK DESCRIPTION:</strong> A Simulated cyber investigator interactive experience
+                <p>
+                    Responded to a phishing and malware attack that compromised Greenwood Hills Hospital's billing system, causing significant operational and financial disruptions. Led the investigation, restored secure operations, and implemented preventive measures.
+                    <br>
+                    <br><b style="color: #4CAF50;">Tools:</b> Malwarebytes, Xcitium OpenEDR, Nessus, Microsoft Defender for Endpoint.</br>
+                    <br>
+                </p>
+                <strong>RESULT</strong>
+                <p>
+                    Contained phishing and malware threats within 12 hours, restoring 100% functionality of hospital billing operations and preventing an estimated $250,000+ in potential financial losses.
+                    Reduced identified system vulnerabilities by 40% through remediation and hardening, improving overall hospital cybersecurity readiness and minimizing operational downtime risk by over 30%.
+                </p>
+            </div>
+
+            <div class="project-item">
+                <h3>10. Simulated SQL Injection Attack Investigation</h3>
+                <strong>WORK DESCRIPTION:</strong> Bank Data Breach Response and Mitigation
+                <p>
+                    Investigated unauthorized access incidents at Gilded Coin Bank, which exposed sensitive customer data to potential theft. Led the technical response, identified the root cause as the SQL Injection attack, and implemented mitigation strategies to secure systems and prevent future breaches.
+                    <br>
+                    <br><b style="color: #4CAF50;">Tools:</b> Splunk, Web Application Firewall, QRadar SIEM.</br>
+                    <br>
+                </p>
+                <strong>RESULT</strong>
+                <p>
+                    Detected and contained the SQL Injection attack within 6 hours, mitigating potential exposure of sensitive customer records.
+                    Reduced database query vulnerabilities by 45% through firewall hardening and policy improvements, enhancing overall banking application security and compliance posture.
+                </p>
+            </div>
+
+            <div class="project-item">
+                <h3>11. Incident Response Optimization</h3>
+                <strong>WORK DESCRIPTION:</strong> Incident Response Plan Design
+                <p>
+                    Led a strategic plan to streamline incident response, improve resilience against cyber incidents, and align processes with industry standards. Developed and executed response plans based on NIST framework, conducted tabletop exercises, and collaborated with external experts to enhance practices.
+                </p>
+                <strong>RESULT</strong>
+                <p>
+                    Significantly reduced incident response times, minimizing the impact on operations.
+                    Achieved a 30% improvement in overall incident handling efficiency, and enhancing cyber incident readiness.
+                </p>
+            </div>
+
+            <div class="project-item">
+                <h3>12. Network Traffic Management And Monitoring</h3>
+                <strong>WORK DESCRIPTION:</strong> Configured Forward and Reverse Proxies
+                <p>
+                    Demonstrated controlled network traffic management and monitoring by installing and configuring forward and reverse proxies on a single windows server 2022 instance.
+                </p>
+                <strong>RESULT</strong>
+                <p>
+                    Successfully established a secure and efficient proxy server environment that enables controlled access to internal and external network resources, ensures seamless traffic routing, and enhances network security and performance.
+                </p>
+            </div>
+
+            <div class="project-item">
+                <h3>13. Securing The Digital Marketplace</h3>
+                <strong>WORK DESCRIPTION:</strong> Strengthening Security For Vulnerable Websites
+                <p>
+                    Conducted a comprehensive security review of an e-commerce platform to identify and mitigate critical vulnerabilities including SQL Injection (SQLi), Cross-Site Scripting (XSS), and insecure APIs. Performed ethical hacking activities that revealed sensitive data exposure, broken access controls, poor error handling, and misplaced SIEM signature files.
+                </p>
+                <strong>RESULT</strong>
+                <p>
+                    Conducted reconnaissance to map the attack surface and uncover weaknesses; exploited and validated findings (SQLi, broken access, misconfigured databases, and XSS) to simulate real-world attack scenarios; evaluated access controls to prevent unauthorized access; and produced a comprehensive remediation report with fixes and recommendations to harden the platform and improve overall security posture.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <div class="contact-info">
+                <p><a href="mailto:janefrances.nwachukwu2@gmail.com">janefrances.nwachukwu2@gmail.com</a></p>
+                <p><a href="tel:859-462-4964">859-462-4964</a></p>
+                <!-- Add social media links here if desired -->
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><a href="mailto:janefrances.nwachukwu2@gmail.com">janefrances.nwachukwu2@gmail.com</a> | <a href="tel:859-462-4964">859-462-4964</a></p>
+        <p>&copy; 2025 Janefrances Nwachukwu. All rights reserved.</p>
+    </footer>
+    <script>
+        (function() {
+            var header = document.querySelector('header');
+            if (!header) return;
+
+            var lastScrollY = window.scrollY || window.pageYOffset;
+            var ticking = false;
+            var threshold = 14; // px before we toggle state
+            var idleTimer = null;
+
+            function update() {
+                var currentY = window.scrollY || window.pageYOffset;
+                var delta = currentY - lastScrollY;
+
+                if (Math.abs(delta) > threshold) {
+                    if (delta > 0) {
+                        // Scrolling down -> hide
+                        header.classList.add('header--hidden');
+                    } else {
+                        // Scrolling up -> show
+                        header.classList.remove('header--hidden');
+                    }
+                    lastScrollY = currentY;
+                }
+                ticking = false;
+            }
+
+            function onScroll() {
+                if (!ticking) {
+                    window.requestAnimationFrame(update);
+                    ticking = true;
+                }
+
+                if (idleTimer) clearTimeout(idleTimer);
+                idleTimer = setTimeout(function() {
+                    // Show header after scrolling has stopped
+                    header.classList.remove('header--hidden');
+                }, 40);
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+        })();
+    </script>
+</body>
+</html> 
